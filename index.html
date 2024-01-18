@@ -11,77 +11,12 @@
 <body>
     <h1>Javascript</h1>
     <h2>本期神預測來啦@@</h2>
+    <button>新預測!</button><br>
+    <div id="lottroy">
 
 
-    <script>
-        let nos = null;
-        console.log(nos);
-
-        //1~10 亂數
-        // for (let i = 0; i < 10; i++) {
-        //     let r = Math.floor(Math.random() * 50) + 1;
-        //     console.log(r);
-        // }
-
-        document.write(Date() + "<hr>")
-
-        let numbers = [];
-        for (let y = 0; y < 5; y++) {
-            let number = [];
-            while (true) {
-                let r = getRandomInt(1, 49);
-                if (!number.includes(r)) {
-                    number.push(r);
-                }
-                if (number.length == 6) {
-                    break;
-                }
-            }
-            //排序
-            number.sort(compare);
-
-            numbers.push(number);
-            document.write(`<h3>第${(y + 1)}組號碼為: ${number.join(" ")}</h3><hr>`);
-        }
-        console.log(numbers);
-
-        //也可以
-        // for (let i = 0; i < numbers.length; i++) {
-        //     rows = numbers[i].join(" ");
-        //     document.write(`<h3>第${(i + 1)}組號碼為: ${rows}</h3><hr>`);
-        // }
-
-
-
-        // for (let i = 0; i < 6; i++) {
-        //     let r = getRandomInt(1, 49);
-        //     // document.write("第" + (i + 1) + "個號碼為:" + r + "<br>");
-        //     document.write(`第${(i + 1)}個號碼為: ${r}<br>`);
-        //     numbers.push(r);
-        // }
-
-        // while (true) {
-        //     let r = getRandomInt(1, 49);
-        //     console.log(r);
-        //     if (r == 49) {
-        //         break;
-        //     }
-        // }
-
-        // 函式
-        function getRandomInt(start, end) {
-            let x = Math.floor(Math.random() * end) + start;
-            return x
-        }
-
-        function compare(a, b) {
-            return a - b;
-        }
-
-        // 陣列(串列)
-
-
-    </script>
+    </div>
+    <script src="./index.js"></script>
 </body>
 
 </html>
