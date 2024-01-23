@@ -8,37 +8,23 @@ console.log(nos);
 //     console.log(r);
 // }
 
-document.write(Date() + "<hr>")
 
+/// 日期
+const dateE1 = document.querySelector(".Date");
+dateE1.innerText = Date();
 
-let numbers = [];
-for (let y = 0; y < 5; y++) {
-    let number = [];
-    while (true) {
-        let r = getRandomInt(1, 49);
-        if (!number.includes(r)) {
-            number.push(r);
-        }
-        if (number.length == 6) {
-            break;
-        }
+///按鈕( 取得亂數+排序)
+function getLottroy() {
+    const lottroyE1 = document.querySelector("#lottroy");
+    numbers = getLasu();
+    lottroyE1.innerText = "";
+    for (let i = 0; i < numbers.length; i++) {
+        rows = numbers[i].join(",");
+        lottroyE1.innerHTML += `<h3>第${(i + 1)}組號碼為: ${rows}</h3><hr>`;
+        //document.write(`<h3>第${(i + 1)}組號碼為: ${rows}</h3><hr>`);
     }
-    //排序
-    number.sort(compare);
 
-    numbers.push(number);
-    //document.write(`<h3>第${(y + 1)}組號碼為: ${number.join(" ")}</h3><hr>`);
 }
-console.log(numbers);
-
-//也可以
-const lottroyE1 = document.querySelector("#lottroy");
-for (let i = 0; i < numbers.length; i++) {
-    rows = numbers[i].join(",");
-    lottroyE1.innerHTML += `<h3>第${(i + 1)}組號碼為: ${rows}</h3><hr>`
-    //document.write(`<h3>第${(i + 1)}組號碼為: ${rows}</h3><hr>`);
-}
-
 
 
 // for (let i = 0; i < 6; i++) {
@@ -77,6 +63,28 @@ h1.style.color = "red";
 function getRandomInt(start, end) {
     let x = Math.floor(Math.random() * end) + start;
     return x
+}
+
+function getLasu() {
+    let numbers = [];
+    for (let y = 0; y < 5; y++) {
+        let number = [];
+        while (true) {
+            let r = getRandomInt(1, 49);
+            if (!number.includes(r)) {
+                number.push(r);
+            }
+            if (number.length == 6) {
+                break;
+            }
+        }
+        //排序
+        number.sort(compare);
+
+        numbers.push(number);
+        //document.write(`<h3>第${(y + 1)}組號碼為: ${number.join(" ")}</h3><hr>`);
+    }
+    return numbers
 }
 
 function compare(a, b) {
