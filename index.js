@@ -14,9 +14,33 @@ const dateE1 = document.querySelector(".Date");
 dateE1.innerText = Date();
 
 ///按鈕( 取得亂數+排序)
+function getLasu(su) {
+    let numbers = [];
+    for (let y = 0; y < su; y++) {
+        let number = [];
+        while (true) {
+            let r = getRandomInt(1, 49);
+            if (!number.includes(r)) {
+                number.push(r);
+            }
+            if (number.length == 6) {
+                break;
+            }
+        }
+        //排序
+        number.sort(compare);
+
+        numbers.push(number);
+        //document.write(`<h3>第${(y + 1)}組號碼為: ${number.join(" ")}</h3><hr>`);
+    }
+    return numbers
+}
+
+
 function getLottroy() {
     const lottroyE1 = document.querySelector("#lottroy");
-    numbers = getLasu();
+    let su = prompt("幾組?");
+    numbers = getLasu(su);
     lottroyE1.innerText = "";
     for (let i = 0; i < numbers.length; i++) {
         rows = numbers[i].join(",");
@@ -65,27 +89,6 @@ function getRandomInt(start, end) {
     return x
 }
 
-function getLasu() {
-    let numbers = [];
-    for (let y = 0; y < 5; y++) {
-        let number = [];
-        while (true) {
-            let r = getRandomInt(1, 49);
-            if (!number.includes(r)) {
-                number.push(r);
-            }
-            if (number.length == 6) {
-                break;
-            }
-        }
-        //排序
-        number.sort(compare);
-
-        numbers.push(number);
-        //document.write(`<h3>第${(y + 1)}組號碼為: ${number.join(" ")}</h3><hr>`);
-    }
-    return numbers
-}
 
 function compare(a, b) {
     return a - b;
